@@ -35,6 +35,9 @@ Default layout, loads most of the pages
     <default>
 
         <!-- Mage_Checkout -->
+		<reference name="header">
+			<block type="checkout/cart_minicart" name="minicart_head" template="checkout/cart/minicart.phtml" />
+		</reference>
         <reference name="top.links">
             <block type="checkout/links" name="checkout_cart_link">
                 <action method="addCartLink"></action>

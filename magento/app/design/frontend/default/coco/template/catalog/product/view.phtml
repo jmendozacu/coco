@@ -45,25 +45,177 @@
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
         </div>
-
+<!---------------test------------------------------->
+<p class="product-image">
+    <?php
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'thumbnail')->keepFrame(FALSE)->resize(640).'" width=640 height=300 alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+        //echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</p>
+<!---------------test------------------------------->
+		
         <div class="product-shop">
-            <div class="product-name">
-                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
-            </div>
+	<!------------------------产品轮播图start----------------------------------------------------->	
+<div class="swiper swiper-container" id="mobile_banner">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide"><?php echo $_helper->productAttribute($_product, $_img);?></div>	
+		<div class="swiper-slide"><?php echo $_helper->productAttribute($_product, $_img);?></div>
+		<div class="swiper-slide"><?php echo $_helper->productAttribute($_product, $_img);?></div>
+	</div>
+    <div class="swiper-pagination"></div>
+</div>
 
-            <?php if ($this->canEmailToFriend()): ?>
-                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
-            <?php endif; ?>
+<script>
+    var swiper = new Swiper('.swiper', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false,
+        loop:true
+    });
+    </script>
 
-            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
-            <?php echo $this->getChildHtml('alert_urls') ?>
+<style>
+   <!-- 手机端焦点图样式 -->
+.swiper-container {
+	width: 100%;
+}
+.swiper-container {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+.swiper-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	-o-transition-property: -o-transform;
+	-ms-transition-property: -ms-transform;
+	transition-property: transform;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.swiper-slide {
+	-webkit-flex-shrink: 0;
+	-ms-flex: 0 0 auto;
+	flex-shrink: 0;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.swiper-slide a,.swiper-slide-active a {
+	display: block;
+	width: 100%;
+}
+
+.swiper-slide a img,.swiper-slide-active a img {
+	display: block;
+	width: 100%;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+	bottom: 30px;
+	left: 0;
+	width: 100%;
+}
+.swiper-pagination {
+	position: relative;
+	text-align: center;
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	-webkit-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	z-index: 10;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+	margin: 0 5px;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet {
+	cursor: pointer;
+}
+.swiper-pagination-bullet {
+
+	width: 8px;
+	height: 8px;
+	display: inline-block;
+	border-radius: 100%;
+	background: #000;
+	opacity: .2;
+}
+.swiper-pagination-bullet-active {
+	opacity: 1;
+	background: #1cce34;
+}
+.mian_home{ width:1080px; margin:0 auto;}
+   <!-- 手机端焦点结束 -->
+  
+ 
+</style>
+	
+	<!------------------------产品轮播图end----------------------------------------------------->		
+			<h1><?php echo $_product->getName();?></h1>
+			<!------------------------简介start----------------------------------------------------->
+            <?php if ($_product->getShortDescription()):?>
+                <div class="short-description">
+                    <h2><?php //echo $this->__('Quick Overview') ?></h2>
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                </div>
+            <?php endif;?>
+<!------------------------简介end----------------------------------------------------->
+<!--------------------有货、价格------------------------------->
             <?php echo $this->getChildHtml('product_type_data') ?>
+			<div style="border:1px solid #f00; ">
+				<ul class="clearfix">
+					<li style="float:left;">限时</li>
+					<li style="float:left;">免运费</li>
+					<li style="float:left;">货到付款</li>
+					<li style="float:left;">7天试用期</li>
+				</ul>
+			</div>
+            <?php //echo $this->getReviewsSummaryHtml($_product, false, true)?>
+            <?php echo $this->getChildHtml('alert_urls');?>
             <?php echo $this->getTierPriceHtml() ?>
             <?php echo $this->getChildHtml('extrahint') ?>
 
             <?php if (!$this->hasOptions()):?>
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
+					<!--------------------添加购物车------------------------------->
                         <?php echo $this->getChildHtml('addtocart') ?>
                         <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
                             <span class="or"><?php echo $this->__('OR') ?></span>
@@ -78,29 +230,24 @@
                 </div>
             <?php endif; ?>
 
-            <?php if ($_product->getShortDescription()):?>
-                <div class="short-description">
-                    <h2><?php echo $this->__('Quick Overview') ?></h2>
-                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
-                </div>
-            <?php endif;?>
-
             <?php echo $this->getChildHtml('other');?>
 
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif;?>
 
-        </div>
 
+        </div>
+<!------------------- 产品缩略图start----------------------------------->
         <div class="product-img-box">
             <?php echo $this->getChildHtml('media') ?>
         </div>
-
+<!----------------------产品缩略图end-------------------------------------->
         <div class="clearer"></div>
         <?php if ($_product->isSaleable() && $this->hasOptions()):?>
             <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
         <?php endif;?>
+		
     </form>
     <script type="text/javascript">
     //<![CDATA[
@@ -168,3 +315,9 @@
         <?php echo $this->getChildHtml('product_additional_data') ?>
     </div>
 </div>
+<p class="product-image">
+    <?php
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->keepFrame(FALSE)->resize(640).'" width=640 height=300 alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</p>

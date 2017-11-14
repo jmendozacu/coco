@@ -98,7 +98,7 @@ ul,ol         { list-style:none; }
 
 /* Base Columns */
 .col-left { float:left; width:230px; border:1px solid #ddd; padding:5px 5px 0; }
-.col-main { float:left; width:100%; border:1px solid #ddd;}
+.col-main { float:left; width:100%; }
 .col-right { float:right; width:230px; border:1px solid #ddd; padding:5px 5px 0; }
 
 /* 1 Column Layout */
@@ -438,22 +438,32 @@ tr.summary-details-excluded { font-style:italic; }
 /* Header ================================================================================ */
 .logo { float:left; }
 .header-container {}
-.header { padding:10px;}
-.header .logo { float:left; text-decoration:none !important; }
+.header { padding-bottom:5px;}
+.header .logo { float:left; text-decoration:none !important; margin-left:20px;}
 .header .logo strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
 .header h1.logo { margin:0; padding:0; }
 .header .welcome-msg { font-weight:bold; text-align:right; }
 .header .welcome-msg a {}
 .header .links { float:right; }
-.header .form-search { text-align:right; }
-.header .form-search .search-autocomplete { z-index:999; }
-.header .form-search .search-autocomplete ul { border:1px solid #ddd; background-color:#fff; }
-.header .form-search .search-autocomplete li { padding:3px; border-bottom:1px solid #ddd; cursor:pointer; }
-.header .form-search .search-autocomplete li .amount { float:right; font-weight:bold; }
-.header .form-search .search-autocomplete li.selected {}
 .header .form-language { clear:both; text-align:right; }
 .header-container .top-container { clear:both; text-align:right; }
+.header .quick-access { position:relative; }
+.header .quick-access .mimi-cart { position:absolute; right:80px; bottom:5px;}
+.header .quick-access .mimi-cart a { display:block; width:33px; height:33px; background-image:url(../images/carticon.jpg); }
+.header .quick-access .search-icon { position:absolute; right: 140px; bottom:5px; display:block; width:33px; height:33px; background-image:url(../images/searchicon.jpg);}
+.header .quick-access .nav-icon { position:absolute; right: 20px; bottom:5px; display:block; width:33px; height:33px; background-image:url(../images/nav.jpg);}
 
+/********** search */
+#search_mini_form{ display:none;} 
+.form-search { }
+.form-search .button{ float:left; display:block; height:35px; width:50px;}
+.form-search .input-text { float:left; width:540px; height:35px; border-radius:5px; font-size:16px; padding:0 10px;}
+.form-search .search-autocomplete { z-index:999; }
+.form-search .search-autocomplete ul { border:1px solid #ddd; background-color:#fff; }
+.form-search .search-autocomplete li { padding:3px; border-bottom:1px solid #ddd; cursor:pointer; }
+.form-search .search-autocomplete li .amount { float:right; font-weight:bold; }
+.form-search .search-autocomplete li.selected {}
+ 
 /********** < Navigation */
 .nav-container {}
 #nav { border:1px solid #ddd; padding:5px 0; margin:10px 0; font-size:13px; }
@@ -500,7 +510,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 
 /* Sidebar =============================================================================== */
-.block { border:1px solid #ddd; margin:0 0 10px; }
+.block {  margin:0 0 10px; }
 .block .block-title { border-bottom:1px solid #ddd; padding:3px 10px; }
 .block .block-title strong { font-size:14px; font-weight:bold; }
 .block .block-title strong span {}
@@ -696,7 +706,7 @@ tr.summary-details-excluded { font-style:italic; }
 /********** < Product Prices */
 .price { white-space:nowrap !important; }
 
-.price-box { text-align:center;}
+.price-box { text-align:left;}
 .price-box .price { font-weight:bold;}
 
 /* Regular price */
@@ -822,7 +832,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* Product Shop */
 .product-view .product-shop { float:right; width:445px; }
-.col1-layout .product-view .product-shop { float:right; width:700px; }
+.col1-layout .product-view .product-shop { float:right; width:640px; }
 .col3-layout .product-view .product-shop { float:none; width:auto; }
 .product-view .product-name {}
 .product-view .short-description {}
@@ -1295,7 +1305,7 @@ tr.summary-details-excluded { font-style:italic; }
 /* staticNav */
 .clear{ clear:both;}
 .clearfix{ zoom:1;}
-.clearfix:after{ height:0; display:block; clear:both; content:"."; visibility:hidden;}
+.clearfix:after{ height:0; display:block; clear:both; content:""; visibility:hidden;}
 
 .ind-nav{ margin-bottom:0.35rem; position: relative; margin:0 auto; }
 .ind-nav::after { content: ''; height: 1px; width: 100%; background:#ededed; position: absolute; bottom: 0; left: 0;}
@@ -1311,8 +1321,14 @@ tr.summary-details-excluded { font-style:italic; }
 .djs01{ width:50%; height:auto;}
 .djs02{ width:50%; height:auto; margin-top:7px; }
 
+/* nav-list */
+.nav-list { display:none;}
+.nav-list .nav-quick {}
 
 
+
+/* product-view */
+.product-shop
 
 
 /*-------------------coco样式end-----------------------------*/

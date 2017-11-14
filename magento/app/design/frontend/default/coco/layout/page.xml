@@ -79,6 +79,8 @@ Default layout, loads most of the pages
                     <label>Navigation Bar</label>
                     <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
                 </block>
+				<block type="page/template_links" name="top.links" as="topLinks"/>
+				<block type="page/html_topmenu" name="topnav" template="page/html/navlist.phtml"/>
             </block>
 
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
