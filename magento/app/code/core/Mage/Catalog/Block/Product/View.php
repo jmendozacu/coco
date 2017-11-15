@@ -278,4 +278,12 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
     {
         return array_merge(parent::getCacheTags(), $this->getProduct()->getCacheIdTags());
     }
+	public function getGalleryImages()
+    {
+        if ($this->_isGalleryDisabled) {
+            return array();
+        }
+        $collection = $this->getProduct()->getMediaGalleryImages();
+        return $collection;
+    }
 }

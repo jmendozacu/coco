@@ -89,7 +89,7 @@ ul,ol         { list-style:none; }
 
 /* Layout ================================================================================ */
 .wrapper {}
-.page { width:640px; margin:0 auto; padding:0; text-align:left; }
+.page { width:640px; margin:0 auto; padding:0; text-align:left; position:relative;}
 .page-print { background:#fff; padding:20px; text-align:left; }
 .page-empty { background:#fff; padding:20px; text-align:left; }
 .page-popup { padding:20px; text-align:left; }
@@ -806,7 +806,8 @@ tr.summary-details-excluded { font-style:italic; }
 
 .product-essential {}
 
-.product-collateral .box-collateral { margin:0 0 15px; }
+.product-collateral .box-collateral { margin:0 0 15px; width:640px; }
+.product-collateral .box-collateral .std img{ width:640px;}
 
 /* Product Images */
 .product-view .product-img-box { float:left; width:267px; }
@@ -836,6 +837,7 @@ tr.summary-details-excluded { font-style:italic; }
 .col3-layout .product-view .product-shop { float:none; width:auto; }
 .product-view .product-name {}
 .product-view .short-description {}
+.product-view .short-description .std{ color: #ccc; font-size: 14px; padding:5px 0;}
 
 /* Product Options */
 .product-options { padding:10px; margin:10px 0 0; border:1px solid #ddd; background-color:#f6f6f6; }
@@ -1325,10 +1327,37 @@ tr.summary-details-excluded { font-style:italic; }
 .nav-list { display:none;}
 .nav-list .nav-quick {}
 
-
-
 /* product-view */
-.product-shop
+.product-shop{}
+.product-shop .shop-price{ padding:5px 0; font-size:24px; color:#d62672; border-bottom: 1px dashed #ccc; border-top:1px dashed #ccc; }
+.product-shop .shop-tag{ border-bottom: 1px dashed #ccc;}
+.product-shop .shop-tag ul{}
+.product-shop .shop-tag ul li{ display: block; float:left; height:30px; line-height: 30px; font-size: 14px; margin:0 15px;}
+.product-shop .shop-tag ul li:first-child{ margin-left:0;}
+
+/* product-tab */
+.view-tab{}
+.view-tab ul{}
+.view-tab ul .content-tab{ display: block; width:50%; height:40px; line-height:40px; float: left; text-align: center; font-size: 16px; background-color: #efefef; }
+.on{ display: block; width:50%; height:40px; line-height:40px; float: left; text-align: center; font-size: 16px; background-color: #fff; border-top:1px solid #faa41a;}
+
+/* tools-bar */
+.product-view {}
+.product-view .tools-bar{ width:640px; height:50px; position:fixed; bottom: 0;}
+.product-view .tools-bar ul{}
+.product-view .tools-bar ul.tools li{ float:left; width:25%; height:50px; line-height:50px; text-align: center; background-color:#ccc;}
+.product-view .tools-bar ul.tools li:hover{ background-color: #fcd344;}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*-------------------coco样式end-----------------------------*/

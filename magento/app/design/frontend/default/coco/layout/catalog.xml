@@ -181,6 +181,7 @@ Product view
         <reference name="head">
             <action method="addJs"><script>varien/product.js</script></action>
             <action method="addJs"><script>varien/configurable.js</script></action>
+			<action method="addJs"><script>coco/jquery-1.8.3.min.js</script></action>
 			<action method="addJs"><script>coco/home_zi.js</script></action>
 
             <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
@@ -194,6 +195,7 @@ Product view
                 <action method="addReviewSummaryTemplate"><type>short</type><template>review/helper/summary_short.phtml</template></action>
                 <action method="addReviewSummaryTemplate"><type>...</type><template>...</template></action>
                 -->
+                <block type="catalog/product_view" name="product.banner" as="banner" template="catalog/product/product_banner.phtml"/>
                 <block type="catalog/product_view_media" name="product.info.media" as="media" template="catalog/product/view/media.phtml"/>
                 <block type="core/text_list" name="alert.urls" as="alert_urls" translate="label">
                     <label>Alert Urls</label>
