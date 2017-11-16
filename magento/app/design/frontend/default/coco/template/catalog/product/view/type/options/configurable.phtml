@@ -24,9 +24,11 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-
+<div>
+    <img src="<?php echo $this->getSkinUrl('images/miaosha.jpg');?>" />
+</div>
 <?php
-$_product    = $this->getProduct();
+$_product = $this->getProduct();
 $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 ?>
 <?php if ($_product->isSaleable() && count($_attributes)):?>

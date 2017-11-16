@@ -36,6 +36,7 @@
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
+<!---------------提示信息-------------->
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 <div class="product-view">
     <div class="product-essential">
@@ -49,14 +50,13 @@
 			<!--商品详情页轮播图-->
 			<?php echo $this->getChildhtml('banner');?>	
 			<h1><?php echo $_product->getName();?></h1>
-			<!------------------------简介start--------------------->
+			<!-------简介start----------->
             <?php if ($_product->getShortDescription()):?>
                 <div class="short-description">
                     <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
                 </div>
             <?php endif;?>
-            <!------------------------简介end----------------------->
-			<!--------------------有货、价格---------->
+			<!----------有货、价格---------->
 			<div class="shop-price">
 				<?php echo $this->getChildHtml('product_type_data') ?>
 			</div>
@@ -73,7 +73,34 @@
             <?php echo $this->getTierPriceHtml() ?>
             <?php echo $this->getChildHtml('extrahint') ?>
         </div>
-
+        <div class="cart-view">
+            <?php echo $this->getChildHtml('other');?>
+            <div class="product-img-box">
+                <?php //echo $this->getChildHtml('media') ?>
+            </div>
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+            <div class="clearer"></div>
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+            <?php endif;?>
+            <?php if (!$this->hasOptions()):?>
+                <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <!--------------------添加购物车------------------------------->
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php //echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php elseif (!$_product->isSaleable()): ?>
+                <div class="add-to-box">
+                    <?php //echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php endif; ?>
+        </div>
     </form>
     <script type="text/javascript">
     //<![CDATA[
@@ -207,32 +234,6 @@
 			<li>立即购买</li>
 		</ul>	
 	</div>
-	<div class="cart-view">
-		<?php echo $this->getChildHtml('other');?>
 
-		<?php if ($_product->isSaleable() && $this->hasOptions()):?>
-			<?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-		<?php endif;?>
-        <div class="clearer"></div>
-        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-        <?php endif;?>
-			<?php if (!$this->hasOptions()):?>
-                <div class="add-to-box">
-                    <?php if($_product->isSaleable()): ?>
-					<!--------------------添加购物车------------------------------->
-                        <?php echo $this->getChildHtml('addtocart') ?>
-                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                    <?php //echo $this->getChildHtml('addto') ?>
-                </div>
-            <?php elseif (!$_product->isSaleable()): ?>
-                <div class="add-to-box">
-                    <?php //echo $this->getChildHtml('addto') ?>
-                </div>
-            <?php endif; ?>
-	</div>
-    <?php echo $this->getChildHtml('product_additional_data') ?>
 </div>
 
