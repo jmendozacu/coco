@@ -635,7 +635,7 @@ tr.summary-details-excluded { font-style:italic; }
 .products-grid .product-image { }
 .products-grid .product-name { margin:0 0 5px 0; font-weight:bold; font-size:13px; }
 .products-grid .product-name a {}
-.products-grid .price-box { background-color:#fff; color:#f10180; font-size:18px; width:190px;}
+.products-grid .price-box { background-color:#fff; color:#f10180; font-size:18px; width:190px; }
 .products-grid .product-name { background-color:#fff; width:190px;}
 .products-grid .product-name a{ color:#333; text-decoration:none; }
 .products-grid .availability { line-height:21px; }
@@ -892,7 +892,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 
 /* Content Styles ================================================================= */
-.product-name { font-size:1em; font-weight:normal; text-align:center;}
+.product-name { font-size:1em; font-weight:normal;}
 .product-name a {}
 
 /* Product Tags */
@@ -1296,7 +1296,7 @@ tr.summary-details-excluded { font-style:italic; }
 .hot-products-grid .product-name a {}
 .hot-products-grid .price-box { background-color:#fff; color:#f10180; font-size:18px;}
 .hot-products-grid .product-name { background-color:#fff;}
-.hot-products-grid .product-name a{ color:#333; text-decoration:none; }
+.hot-products-grid .product-name a{ color:#636363; text-decoration:none; }
 .hot-products-grid .availability { line-height:21px; }
 .hot-products-grid .actions { position:absolute; bottom:12px; }
 .col2-left-layout .hot-products-grid,
@@ -1347,13 +1347,14 @@ tr.summary-details-excluded { font-style:italic; }
 .product-view .tools-bar ul{}
 .product-view .tools-bar ul.tools li{ float:left; width:25%; height:50px; line-height:50px; text-align: center; background-color:#ccc;}
 .product-view .tools-bar ul.tools li:hover{ background-color: #fcd344;}
+.product-view .cart-view{}
 
-
-
-
-
-
-
+/* price */
+.price-box { position:relative; width:100%; height:40px;}
+.old-price,
+.special-price { float:left; width:100px; height:20px; }
+.old-price { font-size: 14px; color:#ccc; position:absolute; left:110px; top:15px;}
+.special-price { position:absolute; left:10px; top:10px; font-size: 20px;}
 
 
 
