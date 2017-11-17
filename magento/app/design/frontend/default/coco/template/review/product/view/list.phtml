@@ -30,11 +30,16 @@
     <?php if (count($_items)):?>
         <h2><?php echo $this->__('Customer Reviews') ?></h2>
         <?php echo $this->getChildHtml('toolbar') ?>
-        <dl>
         <?php foreach ($_items as $_review):?>
+                <?php $customer = $this->escapeHtml($_review->getTitle());?>
             <dt>
-                <a href="<?php echo $this->getReviewUrl($_review->getId()) ?>"><?php echo $this->escapeHtml($_review->getTitle()) ?></a> <?php echo $this->__('Review by <span>%s</span>', $this->escapeHtml($_review->getNickname())) ?>
+    <span id="customer-ff"></span><a href="<?php echo $this->getReviewUrl($_review->getId()) ?>"><span id="customer" class="customer"><?php echo $customer; ?></span></a> <?php echo $this->__('Review by <span>%s</span>', $this->escapeHtml($_review->getNickname())) ?>
             </dt>
+            <script>
+                var customer_value = document.getElementById('customer').innerHTML;
+                var first_font = customer_value.substr(0,1);
+                document.getElementById('customer-ff').innerHTML=first_font;
+            </script>
             <dd>
                 <?php $_votes = $_review->getRatingVotes(); ?>
                 <?php if (count($_votes)): ?>

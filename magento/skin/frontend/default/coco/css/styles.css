@@ -1356,9 +1356,13 @@ tr.summary-details-excluded { font-style:italic; }
 .old-price { font-size: 14px; color:#ccc; position:absolute; left:110px; top:15px;}
 .special-price { position:absolute; left:10px; top:10px; font-size: 20px;}
 
-
-
-
+/* reviews */
+.ratings {}
+.ratings .rating-links {}
+.ratings .rating-links .review-button-left { float:left;}
+.ratings .rating-links .review-button-right { float:right;}
+.ratings .rating-links span a { text-decoration: none; color:#444; font-size: 14px;}
+.ratings .rating-links span a:hover { color:#f54545;}
 
 
 /*-------------------coco样式end-----------------------------*/
