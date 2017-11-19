@@ -29,17 +29,12 @@
 <div class="box-collateral box-reviews" id="customer-reviews">
     <?php if (count($_items)):?>
         <h2><?php echo $this->__('Customer Reviews') ?></h2>
-        <?php echo $this->getChildHtml('toolbar') ?>
         <?php foreach ($_items as $_review):?>
                 <?php $customer = $this->escapeHtml($_review->getTitle());?>
             <dt>
-    <span id="customer-ff"></span><a href="<?php echo $this->getReviewUrl($_review->getId()) ?>"><span id="customer" class="customer"><?php echo $customer; ?></span></a> <?php echo $this->__('Review by <span>%s</span>', $this->escapeHtml($_review->getNickname())) ?>
+                <span class="customer-ff"><?php echo $this->escapeHtml($_review->getNickname()) ?></span><span class="Nickname"><?php echo $this->escapeHtml($_review->getNickname()) ?></span>
             </dt>
-            <script>
-                var customer_value = document.getElementById('customer').innerHTML;
-                var first_font = customer_value.substr(0,1);
-                document.getElementById('customer-ff').innerHTML=first_font;
-            </script>
+
             <dd>
                 <?php $_votes = $_review->getRatingVotes(); ?>
                 <?php if (count($_votes)): ?>
@@ -65,6 +60,15 @@
             </dd>
         <?php endforeach; ?>
         </dl>
+        <script>
+            jQuery('.customer-ff').each(function () {
+                var Nickname = jQuery(this).html();
+                var first_font = Nickname.substr(0,1);
+                jQuery(this).html(first_font);
+            });
+
+        </script>
+
         <?php echo $this->getChildHtml('toolbar') ?>
     <?php endif;?>
     <?php echo $this->getChildHtml('review_form') ?>
