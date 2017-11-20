@@ -163,7 +163,7 @@
 		</div>
 		<div class="view-content">
 			<ul>
-				<li  style="display:none;">
+				<li>
 					<div class="product-collateral">
 					<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
 						<div class="box-collateral <?php echo "box-{$alias}"?>">
@@ -177,7 +177,7 @@
 						<?php echo $this->getChildHtml('product_additional_data') ?>
 					</div>
 				</li>
-				<li class="content-tab">
+				<li class="content-tab" style="display:none;">
                     <div class="review-button"><?php echo $this->getReviewsSummaryHtml($_product, false, true)?></div>
                     <div class="review-list"><?php echo $this->getChildHtml('product_review') ?></div>
 

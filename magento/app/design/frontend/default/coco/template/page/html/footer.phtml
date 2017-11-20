@@ -32,7 +32,8 @@
 		</div>
         <div>
 			<img src="<?php echo $this->getSkinUrl('images/zhifu.jpg'); ?>" />
-		</div>	
+		</div>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('cms_menu')->toHtml() ?>
         <address><?php echo $this->getCopyright() ?></address>
     </div>
 </div>
