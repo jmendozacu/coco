@@ -68,7 +68,7 @@
 					<li>7天试用期</li>
 				</ul>
 			</div>
-            <?php //echo $this->getReviewsSummaryHtml($_product, false, true)?>
+
             <?php echo $this->getChildHtml('alert_urls');?>
             <?php echo $this->getTierPriceHtml() ?>
             <?php echo $this->getChildHtml('extrahint') ?>
@@ -177,41 +177,10 @@
 						<?php echo $this->getChildHtml('product_additional_data') ?>
 					</div>
 				</li>
-				<li class="content-tab"  style="display:none;">
-					<div class="com_title">
-						<div class="pl-tit">
-							<p>評價(1523)</p>
-							<span class="btn1">我要評價</span>
-						</div>						          				
-				    </div>
-					<dl class="p-box">
-						<dd class="d-box">
-							<div class="dj">
-								<span class="tag">t</span>
-								<p class="pl-name">test</p>
-								<button id="3534" onclick="f1(3534)" style="color:#ff1493;border: 0px;font-size: 20px">贊(0)</button>
-								<p><span class="xing no1"></span></p>
-							</div>
-							<div class="xidei xidei3534">
-								<p>test </p>
-								<a class="fancybox" target="_blank" href="http://www.51bahrtr.com//media/reviewimages/index_12.jpg" data-fancybox-group="gallery" title="">
-									<img style="border:1px solid #ddd;width: 102px;height: auto" src="http://www.51bahrtr.com//media/reviewimages/index_12.jpg" alt="">
-								</a>
-							</div>
-							<div style="clear: both;float: none;"></div>
-							<span> 2017/10/27</span>
-						</dd>
-					</dl>
-				    <div style="clear: both;float: none;"></div>
-					<div class="dingdan">
-						<h1>訂單追蹤</h1>
-						<div class="input">
-							<form action="">
-								<input class="dingdan-text" type="text">
-								<input class="dingdan-button" type="button" value="查詢">
-							</form>
-						</div>
-					</div>
+				<li class="content-tab" style="display:none;">
+                    <div class="review-button"><?php echo $this->getReviewsSummaryHtml($_product, false, true)?></div>
+                    <div class="review-list"><?php echo $this->getChildHtml('product_review') ?></div>
+
 				</li>
 			</ul>	
 		</div>

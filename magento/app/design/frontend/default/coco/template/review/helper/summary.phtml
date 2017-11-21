@@ -31,10 +31,9 @@
                 <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
             </div>
         <?php endif;?>
-        <p class="rating-links">
-            <a href="<?php echo $this->getReviewsUrl() ?>"><?php echo $this->__('%d Review(s)', $this->getReviewsCount()) ?></a>
-            <span class="separator">|</span>
-            <a href="<?php echo $this->getReviewsUrl() ?>#review-form"><?php echo $this->__('Add Your Review') ?></a>
+        <p class="rating-links clearfix">
+            <span class="review-button-left"> <a href="<?php echo $this->getReviewsUrl() ?>"><?php echo $this->__('%d Review(s)', $this->getReviewsCount()) ?></a></span>
+            <span class="review-button-right"><a href="<?php echo $this->getReviewsUrl() ?>#review-form"><?php echo $this->__('Add Your Review') ?></a></span>
         </p>
     </div>
 <?php elseif ($this->getDisplayIfEmpty()): ?>

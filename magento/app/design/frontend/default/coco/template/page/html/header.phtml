@@ -30,17 +30,21 @@
 <div class="header-container">
     <div class="header">
         <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+            <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
         <?php else:?>
-        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
         <?php endif?>
         <div class="quick-access">
-			<span class="search-icon"></span>
-			<?php echo $this->getChildHtml('minicart_head'); ?>
+            <span class="search-icon"></span>
+            <?php echo $this->getChildHtml('minicart_head'); ?>
             <?php echo $this->getChildHtml('topLinks') ?>
             <?php //echo $this->getChildHtml('store_language') ?>
-			<span class="nav-icon"></span>
-			<?php echo $this->getChildHtml('topnav') ?>
+            <span class="nav-icon"></span>
+            <div class="slideNav"><?php echo $this->getChildHtml('topnav') ?></div>
+
+        </div>
+        <div>
+            <?php echo $this->getChildHtml('topSearch') ?>
         </div>
 		<div class="search_box">
 			 <?php echo $this->getChildHtml('topSearch') ?>

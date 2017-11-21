@@ -1325,8 +1325,10 @@ tr.summary-details-excluded { font-style:italic; }
 .djs02{ width:50%; height:auto; margin-top:7px; }
 
 /* nav-list */
-.nav-list { display:none;}
-.nav-list .nav-quick {}
+.slideNav { border:1px solid #f00; position: absolute; top:0; z-index: 9999; width:70%; height:800px; background: #fff; display: none;}
+.nav-list {}
+.nav-list #nav-quick li{}
+.nav-list #nav-quick li ul{ display: none;}
 
 /* product-view */
 .product-shop{}
@@ -1357,9 +1359,18 @@ tr.summary-details-excluded { font-style:italic; }
 .old-price { font-size: 14px; color:#ccc; position:absolute; left:110px; top:15px;}
 .special-price { position:absolute; left:10px; top:10px; font-size: 20px;}
 
+/* reviews */
+.ratings {}
+.ratings .rating-links {}
+.ratings .rating-links .review-button-left { float:left;}
+.ratings .rating-links .review-button-right { float:right;}
+.ratings .rating-links span a { text-decoration: none; color:#444; font-size: 14px;}
+.ratings .rating-links span a:hover { color:#f54545;}
 
-
-
-
-
+/* footer links */
+.footer .footer-links { }
+.footer .footer-links ul { background-color: #eeeef0;}
+.footer .footer-links ul li { display: inline; width:100px; height:20px; margin:0 10px;}
+.footer .footer-links ul li a { text-decoration: none; color: #0A263C;}
+.footer .footer-links ul li a:hover { color:#f54545;}
 /*-------------------coco样式end-----------------------------*/
