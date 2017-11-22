@@ -94,11 +94,11 @@
     //<![CDATA[
     	$j(document).ready(function(){
 			$j(".value").click(function(){
-				$j(".xing").removeClass("onx");
-				$j(".radio").removeAttr("checked");
+				$j(this).parent("tr").find(".xing").removeClass("onx");
+				$j(this).parent("tr").find(".radio").removeAttr("checked");
 				var xi = $j(this).find(".xing");
-				var n = $j(".xing").index(xi)+1;
-				$j(".xing").slice(0, n).addClass("onx");
+				var n = $j(this).parent("tr").find(".xing").index(xi)+1;
+				$j(this).parent("tr").find(".xing").slice(0, n).addClass("onx");
 				$j(this).find(":radio").prop("checked",true);
 			});
 		});
