@@ -38,6 +38,8 @@
 </script>
 <style>
 	.footer{padding-bottom: 60px;}
+	.page{padding-top: 0;}
+	.header-container{position: inherit;}
 </style>
 <!---------------提示信息-------------->
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
@@ -198,15 +200,6 @@
 				
 			});
 		</script>
-	<div class="tools-bar" style="display: none;">
-		<ul class="tools clearfix">
-			<li>首页</li>
-			<li>客服</li>
-			<li class="add-cart-button">加入购物车</li>
-			<li>立即购买</li>
-		</ul>	
-	</div>
-	
 	<div id="buynowce" class="tools-bar">
         <div class="buy_l">
             <div class="dianpu">
@@ -228,4 +221,7 @@
     </div>
 
 </div>
-
+<!--商品详情评论-->
+<script>
+	var nav=$j(".view-tab"); win=$j(window);var sc=$j(document);win.scroll(function(){if(sc.scrollTop()>=$j(".shop-tag").offset().top+45){nav.addClass("fixed")}else{nav.removeClass("fixed")}});
+</script>

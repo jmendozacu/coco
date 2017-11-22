@@ -25,7 +25,7 @@
  */
 ?>
 <div class="form-add">
-    <h2><?php echo $this->__('Write Your Own Review') ?></h2>
+    <h2 style="display: none;"><?php echo $this->__('Write Your Own Review') ?></h2>
     <?php if ($this->getAllowWriteReviewFlag()): ?>
     <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
         <?php echo $this->getBlockHtml('formkey'); ?>
@@ -33,7 +33,7 @@
             <?php echo $this->getChildHtml('form_fields_before')?>
             <h3><?php echo $this->__("You're reviewing:"); ?> <span><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?></span></h3>
             <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
-                <h4><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h4>
+                <h4 style="display: none;"><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h4>
                 <span id="input-message-box"></span>
                 <table class="data-table" id="product-review-table">
                     <col width="1" />
@@ -41,7 +41,7 @@
                     <col width="1" />
                     <col width="1" />
                     <col width="1" />
-                    <thead>
+                    <thead style="display: none;">
                         <tr>
                             <th>&nbsp;</th>
                             <th><span class="nobr"><?php echo $this->__('1 star') ?></span></th>
@@ -56,7 +56,7 @@
                         <tr>
                             <th><?php echo $this->escapeHtml($_rating->getRatingCode()) ?></th>
                         <?php foreach ($_rating->getOptions() as $_option): ?>
-                            <td class="value"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /></td>
+                            <td class="value"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /><label class="xing"></label></td>
                         <?php endforeach; ?>
                         </tr>
                     <?php endforeach; ?>
@@ -92,6 +92,16 @@
     </form>
     <script type="text/javascript">
     //<![CDATA[
+    	$j(document).ready(function(){
+			$j(".value").click(function(){
+				$j(".xing").removeClass("onx");
+				$j(".radio").removeAttr("checked");
+				var xi = $j(this).find(".xing");
+				var n = $j(".xing").index(xi)+1;
+				$j(".xing").slice(0, n).addClass("onx");
+				$j(this).find(":radio").prop("checked",true);
+			});
+		});
         var dataForm = new VarienForm('review-form');
         Validation.addAllThese(
         [

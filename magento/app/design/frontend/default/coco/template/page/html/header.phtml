@@ -55,26 +55,28 @@
 </div>
  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#search").click(function(){
-			$(".search_box").toggle(300);
+	jQuery.noConflict();//将变量$的控制权移交给其他的javascript库
+	var $j=jQuery.noConflict();//自定义一个快捷方式
+	$j(document).ready(function(){
+		$j("#search").click(function(){
+			$j(".search_box").toggle(300);
 		});
 		/*$("#coll").click(function(){
 			$(".slideNav").toggle(300);
 		});*/
 	});
 	
-	$(function () {
-        $("#coll").on("click",function () {
-        	var left=$(".slideNav").css("margin-left");
+	$j(function () {
+        $j("#coll").on("click",function () {
+        	var left=$j(".slideNav").css("margin-left");
         	if(left!="0px"){
-        		$(".cate_cover_opacity").addClass("one");
-            	$(".slideNav").animate({marginLeft:"0px"});
-            	$(this).addClass("cur");
+        		$j(".cate_cover_opacity").addClass("one");
+            	$j(".slideNav").animate({marginLeft:"0px"});
+            	$j(this).addClass("cur");
            }else{
-           	$(".slideNav").animate({marginLeft:"-200%"});
-           	$(".cate_cover_opacity").removeClass("one");
-           	$(this).removeClass("cur");
+           	$j(".slideNav").animate({marginLeft:"-200%"});
+           	$j(".cate_cover_opacity").removeClass("one");
+           	$j(this).removeClass("cur");
            }
         });
 });
