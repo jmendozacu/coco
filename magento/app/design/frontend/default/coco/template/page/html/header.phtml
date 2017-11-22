@@ -35,14 +35,15 @@
             <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
         <?php endif?>
         <div class="quick-access">
-            <span class="search-icon"></span>
+            <span class="search-icon" id="search"></span>
             <?php echo $this->getChildHtml('minicart_head'); ?>
             <?php echo $this->getChildHtml('topLinks') ?>
             <?php //echo $this->getChildHtml('store_language') ?>
-            <span class="nav-icon"></span>
+            <span class="nav-icon" id="coll"></span>
+            <div class="cate_cover_opacity"></div>
             <div class="slideNav"><?php echo $this->getChildHtml('topnav') ?></div>
         </div>
-        <div>
+        <div style="display: none;">
             <?php echo $this->getChildHtml('topSearch') ?>
         </div>
 		<div class="search_box">
@@ -51,3 +52,29 @@
         <?php echo $this->getChildHtml('topContainer'); ?>
     </div>
 </div>
+ <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#search").click(function(){
+			$(".search_box").toggle(300);
+		});
+		/*$("#coll").click(function(){
+			$(".slideNav").toggle(300);
+		});*/
+	});
+	
+	$(function () {
+        $("#coll").on("click",function () {
+        	var left=$(".slideNav").css("margin-left");
+        	if(left!="0px"){
+        		$(".cate_cover_opacity").addClass("one");
+            	$(".slideNav").animate({marginLeft:"0px"});
+            	$(this).addClass("cur");
+           }else{
+           	$(".slideNav").animate({marginLeft:"-200%"});
+           	$(".cate_cover_opacity").removeClass("one");
+           	$(this).removeClass("cur");
+           }
+        });
+});
+</script>

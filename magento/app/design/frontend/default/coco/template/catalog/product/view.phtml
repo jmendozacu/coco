@@ -36,6 +36,9 @@
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
+<style>
+	.footer{padding-bottom: 60px;}
+</style>
 <!---------------提示信息-------------->
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 <div class="product-view">
@@ -62,10 +65,10 @@
 			</div>
 			<div class="shop-tag">
 				<ul class="clearfix">
-					<li>限时</li>
-					<li>免运费</li>
-					<li>货到付款</li>
-					<li>7天试用期</li>
+					<li><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;&nbsp;限时</li>
+					<li><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;&nbsp;免运费</li>
+					<li><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;&nbsp;货到付款</li>
+					<li><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;&nbsp;7天试用期</li>
 				</ul>
 			</div>
 
@@ -195,7 +198,7 @@
 				
 			});
 		</script>
-	<div class="tools-bar">
+	<div class="tools-bar" style="display: none;">
 		<ul class="tools clearfix">
 			<li>首页</li>
 			<li>客服</li>
@@ -203,6 +206,26 @@
 			<li>立即购买</li>
 		</ul>	
 	</div>
+	
+	<div id="buynowce" class="tools-bar">
+        <div class="buy_l">
+            <div class="dianpu">
+				<a href="/">
+					<i class="fa fa-bank" ></i>
+					<span>Home</span>
+				</a>
+			</div>
+            <div class="xiang_cart">
+				<a href="/cart" title="Add to the wishlist: 0 The product was added to your wishlist">
+                	<i class="fa fa-cart-plus"></i>
+                	<span id="cart_items2">0</span>
+                   	<span>Cart</span>
+                </a>
+            </div>
+        </div>
+		<button class="btn ja_btn-cart ja_g" type="submit" id="chose02">Add to cart</button>
+        <button class="btn ja_buynow" type="submit" id="chose03">Buy Now</button>
+    </div>
 
 </div>
 
