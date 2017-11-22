@@ -456,6 +456,7 @@ tr.summary-details-excluded { font-style:italic; }
 .header .quick-access .nav-icon.cur{background-image: url(../images/delate.png);}
 .cate_cover_opacity{width:100%; height:100%; position:fixed; top:45px;max-width:640px;margin: 0 auto; background:rgba(0,0,0,0.7); z-index:3;visibility: hidden;transition:0.3s;opacity: 0;margin-left:0%;}
 .cate_cover_opacity.one{visibility: visible;opacity: 1;}
+.header .account { position: absolute; right:190px; bottom:5px; width:33px; height:33px; }
 
 /********** search */
 .search_box{width:90%;padding: 10px 5%;background-color: #f7f7f7;display: none;}

@@ -42,9 +42,12 @@
             <span class="nav-icon" id="coll"></span>
             <div class="cate_cover_opacity"></div>
             <div class="slideNav"><?php echo $this->getChildHtml('topnav') ?></div>
-        </div>
-        <div style="display: none;">
-            <?php echo $this->getChildHtml('topSearch') ?>
+            <div class="account">
+                <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>" data-target-element="#header-account" class="skip-link skip-account">
+                    <span class="icon"></span>
+                    <span class="label"><?php echo $this->__('Account'); ?></span>
+                </a>
+            </div>
         </div>
 		<div class="search_box">
 			 <?php echo $this->getChildHtml('topSearch') ?>
