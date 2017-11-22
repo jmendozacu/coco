@@ -81,7 +81,7 @@
         <div class="cart-view">
             <?php echo $this->getChildHtml('other');?>
             <div class="product-img-box">
-                <?php //echo $this->getChildHtml('media') ?>
+                <?php echo $this->getChildHtml('media') ?>
             </div>
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
